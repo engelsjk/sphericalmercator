@@ -44,7 +44,7 @@ func New(opts *Options) SphericalMercator {
 	}
 	sm.sizef = float64(sm.size)
 
-	if len(cache[sm.size]) == 0 {
+	if _, ok := cache[sm.size]; !ok {
 		size := sm.sizef
 		c := map[string][]float64{}
 		c["bc"] = make([]float64, 30)
